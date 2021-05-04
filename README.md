@@ -1,1 +1,1 @@
-# registration_system
+A user registration system, working on python, using tkinter library for interface, and mysql to save database of the users registred, the registration work containing username and password, after that, the user can sign in with your username and password.
