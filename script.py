@@ -23,18 +23,18 @@ class sign_in_window():
 
 class sign_up_window():
     def __init__(self):
-        self.sign_in_window = Toplevel()
-        self.sign_in_window.title("SIGN UP")
-        self.sign_in_window.resizable(False,False)
+        self.sign_up_window = Toplevel()
+        self.sign_up_window.title("SIGN UP")
+        self.sign_up_window.resizable(False,False)
         
-        Label(self.sign_in_window,text="SIGN UP",font="Helvetica").grid(row=0,column=0,sticky=W,pady=10)
-        Label(self.sign_in_window,text="Username: ",font="Helvetica, 12").grid(row=1,column=0)
-        Label(self.sign_in_window,text="Password: ",font="Helvetica, 12").grid(row=2,column=0)
+        Label(self.sign_up_window,text="SIGN UP",font="Helvetica").grid(row=0,column=0,sticky=W,pady=10)
+        Label(self.sign_up_window,text="Username: ",font="Helvetica, 12").grid(row=1,column=0)
+        Label(self.sign_up_window,text="Password: ",font="Helvetica, 12").grid(row=2,column=0)
 
-        Entry(self.sign_in_window,font="Helvetica, 10").grid(row=1,column=1)
-        Entry(self.sign_in_window,font="Helvetica, 10").grid(row=2,column=1)
+        Entry(self.sign_up_window,font="Helvetica, 10").grid(row=1,column=1)
+        Entry(self.sign_up_window,font="Helvetica, 10").grid(row=2,column=1,pady=(0,20))
 
-        self.bt_up = Button(self.sign_in_window,text="Sign up",font="Helvetica, 16")
+        self.bt_up = Button(self.sign_up_window,text="Sign up",font="Helvetica, 16")
         self.bt_up.grid(row=1,column=2,rowspan=2,pady=20)
 
         self.sign_up_window.mainloop()
