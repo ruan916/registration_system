@@ -23,21 +23,36 @@ class sign_in_window():
 
 class sign_up_window():
     def __init__(self):
-        self.sign_up_window = Toplevel()
-        self.sign_up_window.title("SIGN UP")
-        self.sign_up_window.resizable(False,False)
-        
-        Label(self.sign_up_window,text="SIGN UP",font="Helvetica").grid(row=0,column=0,sticky=W,pady=10)
-        Label(self.sign_up_window,text="Username: ",font="Helvetica, 12").grid(row=1,column=0)
-        Label(self.sign_up_window,text="Password: ",font="Helvetica, 12").grid(row=2,column=0)
+        self.register_window = Tk()
+        self.register_window.title("Users Register")
+        self.register_window.resizable(False,False)
 
-        Entry(self.sign_up_window,font="Helvetica, 10").grid(row=1,column=1)
-        Entry(self.sign_up_window,font="Helvetica, 10").grid(row=2,column=1,pady=(0,20))
+        self.username_label = Label(self.register_window,text="Username")
+        self.username_label.grid(row=0,column=0,sticky=W,padx=10,pady=10)
 
-        self.bt_up = Button(self.sign_up_window,text="Sign up",font="Helvetica, 16")
-        self.bt_up.grid(row=1,column=2,rowspan=2,pady=20)
+        self.username_entry = ttk.Entry(self.register_window)
+        self.username_entry.grid(row=0,column=1,columnspan=2,padx=10,pady=10,sticky=W+E)
 
-        self.sign_up_window.mainloop()
+        self.password_label = Label(self.register_window,text="Password:")
+        self.password_label.grid(row=1,column=0,sticky=W,padx=10,pady=10)
+
+        self.password_entry = ttk.Entry(self.register_window)
+        self.password_entry.grid(row=1,column=1,columnspan=2,padx=10,pady=10,sticky=W+E)
+
+        self.submit_button = ttk.Button(self.register_window,text="Submit")
+        self.submit_button.grid(row=0,column=3,padx=9,sticky=W+E)
+
+        self.delete_button = ttk.Button(self.register_window,text="Delete")
+        self.delete_button.grid(row=1,column=3,padx=9,sticky=W+E)
+
+        self.tree = ttk.Treeview(self.register_window,selectmode="browse",column=("column1","column2"),show='headings')
+        self.tree.column("column1",width=100,minwidth=100,stretch=NO)
+        self.tree.heading("#1",text="Username")
+        self.tree.column("column2",width=100,minwidth=100,stretch=NO)
+        self.tree.heading("#2",text="Password")
+        self.tree.grid(row=2,column=0,columnspan=2,padx=9,pady=9,sticky=W+E)
+
+        self.register_window.mainloop()
 
 class mainwindow():
     def sign_in(self):
@@ -62,20 +77,20 @@ class mainwindow():
         self.root.protocol("WM_DELETE_WINDOW",self.quit_window)
         self.root.title("Users Register")
 
-        Label(self.root,text="Users Register",font="Helvetica, 20",fg='blue').grid(row=0,column=0,sticky=W+E)
-        Label(self.root,text="If you don't have account, please click in sign up",font="Helvetica, 18",fg='red4').grid(row=1,column=0,sticky=W)
+        Label(self.root,text="USERS REGISTER",font="Helvetica, 20",fg='purple2',bg='black').grid(row=0,column=0,sticky=W+E)
+        Label(self.root,text="If you don't have account,\nplease click in sign up",font="Helvetica, 12",fg='red3',bg='black').grid(row=1,column=0,sticky=W+E)
 
         self.bt = Button(self.root,text="Sign up",font="Helvetica, 16",command=self.sign_up)
-        self.bt.configure(width=18,height=2,fg='white',bg='orange4')
-        self.bt.grid(row=5,column=0,columnspan=2,sticky='N',pady=30)
+        self.bt.configure(width=18,height=2,fg='white',bg='purple4')
+        self.bt.grid(row=5,column=0,columnspan=2,sticky=W+E,pady=1)
 
         self.bt = Button(self.root,text="Sign in",font="Helvetica, 16",command=self.sign_in)
-        self.bt.configure(width=18,height=2,fg='white',bg='orange4')
-        self.bt.grid(row=5,column=2,columnspan=2,sticky='N',pady=30)
+        self.bt.configure(width=18,height=2,fg='white',bg='purple4')
+        self.bt.grid(row=6,column=0,columnspan=2,sticky=W+E,pady=1)
 
         self.bt = Button(self.root,text="Quit",font="Helvetica, 16",command=self.quit_window)
-        self.bt.configure(width=18,height=2,fg='white',bg='orange4')
-        self.bt.grid(row=6,column=1,columnspan=2,sticky='N',pady=30)
+        self.bt.configure(width=18,height=2,fg='white',bg='purple4')
+        self.bt.grid(row=7,column=0,columnspan=2,sticky=W+E,pady=1)
 
         self.root.mainloop()
 try:
