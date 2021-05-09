@@ -1,6 +1,5 @@
 from tkinter import *
-from tkinter import ttk
-from tkinter import messagebox
+from tkinter import ttk, messagebox
 import sqlite3
 
 class sign_in_window():
@@ -53,6 +52,8 @@ class sign_up_window():
         self.tree.column("column2",width=250,minwidth=250,stretch=NO)
         self.tree.heading("#2",text="Password")
         self.tree.grid(row=2,column=1,pady=9,sticky=W+E)
+
+        
 
         self.register_window.mainloop()
 
